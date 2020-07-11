@@ -1,0 +1,17 @@
+建表语句
+
+create table Product(
+    Prold int primary key ,
+    Sku int unique , -- 商品编码
+    Title varchar(10) -- 标题
+);
+
+create table OfferPrice(
+    Ofpld int primary key ,
+    EffetiveStartDate date, -- 价格有效开始时间
+    EffetiveEndDate date, -- 价格有效结束时间
+    Prold int, -- 关联Product表
+    Price int, -- 单价
+    TypeCd varchar(10), -- 价格类型
+    foreign key (Prold) references Product(Sku)
+);
